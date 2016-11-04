@@ -12,14 +12,14 @@
       group: name='developers'
 
     - name: add dev user
-      user: name='wfaler' groups="developers"
+      user: name='dev' groups="developers"
 
     - name: register key for default user
-      action: authorized_key user='wfaler' key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+      action: authorized_key user='dev' key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 
 
     - name: register key for user ubuntu
-      action: authorized_key user='wfaler' key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"      
+      action: authorized_key user='dev' key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"      
 
     - name: register key for user ubuntu
       action: authorized_key user='root' key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"      
@@ -84,25 +84,25 @@
 
     - name: Ensure xmonad folder exists
       become: false
-      remote_user: 'wfaler'
-      file: path=/home/wfaler/.xmonad state=directory
+      remote_user: 'dev'
+      file: path=/home/dev/.xmonad state=directory
 
     - name: copy xmonad config
       become: false
-      remote_user: 'wfaler'
-      copy: src=xmonad.hs dest=/home/wfaler/.xmonad/xmonad.hs owner=wfaler group=developers
+      remote_user: 'dev'
+      copy: src=xmonad.hs dest=/home/dev/.xmonad/xmonad.hs owner=dev group=developers
 
     - name: copy .xsession config
       become: false
-      remote_user: 'wfaler'
-      copy: src=.xsession dest=/home/wfaler/.xsession owner=wfaler group=developers mode=0755
+      remote_user: 'dev'
+      copy: src=.xsession dest=/home/dev/.xsession owner=dev group=developers mode=0755
 
     - name: Ensure emacs.d folder exists
       become: false
-      remote_user: 'wfaler'
-      file: path=/home/wfaler/.emacs.d state=directory
+      remote_user: 'dev'
+      file: path=/home/dev/.emacs.d state=directory
 
     - name: init.el
       become: false
-      remote_user: 'wfaler'
-      copy: src=init.el dest=/home/wfaler/.emacs.d/init.el owner=wfaler group=developers
+      remote_user: 'dev'
+      copy: src=init.el dest=/home/dev/.emacs.d/init.el owner=dev group=developers
