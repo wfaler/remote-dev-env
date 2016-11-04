@@ -1,6 +1,6 @@
 Sets up minimal development environment with xmonad, Git, Java, Emacs, PostgreSql & Firefox pre-installed.
 
-     ansible-playbook provision-vagrant.yml -i inventory --user=wfaler --ask-sudo-pass --ask-pass
+     ansible-playbook provision-vagrant.yml -i inventory --user=[admin user with sudo/root] --ask-sudo-pass --ask-pass
      
 Logon to server, run:
     
