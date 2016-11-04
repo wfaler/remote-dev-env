@@ -23,3 +23,10 @@ Still lots to do:
 - Install Ruby/RVM by default
 - Install Haskell Stack
 - Setup nginx by default
+- Secure VNC connection (insecure, unencrypted by default)
+
+## Why?
+To use when you need more grunt but only have limited hardware resources like:
+
+- iPad with a VNC client and SSH client like "Screens" and Panic Prompt 2
+- Underpowered or low-memory laptop or old desktop
